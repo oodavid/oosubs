@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>oosubtitles!</title>
+	<meta charset="utf-8" />
+	<!-- Tweak mobile browsers - make it fit, no scrolling, remove the address bar on iOS -->
+	<meta name="HandheldFriendly" content="true" />
+	<meta name="viewport" content="width=device-width,height=device-height; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta names="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<link rel="shortcut icon" href="favicon.ico" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" /></script>
+	<script>
+		$(document).ready(function() {
+			/**
+			 * Removing the address bar in android
+			 */
+			if (navigator.userAgent.match(/Android/i)) {
+				autoscroll();
+			}
+			// Add a listener for changes in orientation - might be orientationchange or resize...
+			var supportsOrientationChange = "onorientationchange" in window;
+			var orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+			$(window).bind(orientationEvent,function(e){
+				// Re-rendering code here
+				//
+				// window.orientation
+				// screen.width
+			});
+		});
+		// Autoscrolling
+		function autoscroll() {
+			window.scrollBy(0,1);
+			setTimeout(autoscroll, 50);
+		}
+	</script>
+	<style>
+		html, body {height: 100%;}
+		body {background: #000000; color: #FFFFFF;}
+		* {margin: 0; padding: 0; border: 0; -webkit-text-size-adjust:none;}
+		/* LUB */
+			.heart {color: #FF0000;}
+		/* The subtitle */
+			h1 {margin: 1px; text-align: center;}
+		/* Controls */
+			h2		{position: absolute; bottom: 0; left: 0; right: 0; background: #FFFFFF; color: #000000; text-align: center; padding: 10px 0;}
+			h2 span	{background-color: #000000; color: #FFFFFF; padding: 5px 10px; -webkit-border-radius: 15px; -khtml-border-radius: 15px; -moz-border-radius: 15px; border-radius: 15px;}
+	</style>
+</head>
+<body>
+	<h1>subs.oodavid.com means I can take my Roz to the cinema and bring subtitles with me <span class="heart">&hearts;</span></h1>
+	<h2>
+      <span id="prev">&laquo;&laquo; back</span>
+      <span id="play">play</span>
+      <span id="next">frwd &raquo;&raquo;</span>
+	</h2>
+</body>
+</html>
+
+
